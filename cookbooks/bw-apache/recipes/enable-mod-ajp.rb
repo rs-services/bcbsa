@@ -15,3 +15,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+include_recipe 'apache2::mod_proxy_ajp'
+
+# apache_config 'mod_proxy_ajp' do
+#   enable true
+# end
