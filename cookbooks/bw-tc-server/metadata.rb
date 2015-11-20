@@ -1,0 +1,7 @@
+name             'bw-tc-server'
+maintainer       'RightScale, Inc.'
+maintainer_email 'cookbooks@rightscale.com'
+license          'Apache 2.0'
+description      'Installs/Configures bw-tc-server'
+long_description 'Installs/Configures bw-tc-server'
+version          '0.1.0'
