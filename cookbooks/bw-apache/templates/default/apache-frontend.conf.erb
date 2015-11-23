@@ -2,7 +2,7 @@
 ServerName <%= @params['server_name'] %>
 DocumentRoot <%= @params['docroot'] %>
 
-<Proxy balancer://liferaycms-balancer>
+<!-- <Proxy balancer://liferaycms-balancer>
      AddDefaultCharset Off
      Order deny,allow
      Allow from all
@@ -15,4 +15,4 @@ ProxyPass        /  balancer://liferaycms-balancer/
 ProxyPassReverse / ajp://<%= @params['liferay_server'] %>:9080/
 
 
-</VirtualHost>
+</VirtualHost> -->
