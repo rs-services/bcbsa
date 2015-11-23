@@ -7,7 +7,7 @@ long_description 'Installs/Configures bw-apache'
 version          '0.1.0'
 
 depends 'apache2'
-depends 'yum-epel'
+
 
 recipe 'bw-apache::install', 'installs apache web server'
 recipe 'bw-apache::enable-mod-ajp', 'enabled the mod_proxy_ajp'
