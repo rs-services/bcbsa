@@ -41,8 +41,8 @@ end
 template '/etc/httpd/sites-available/apache-frontend' do
   source 'apache-frontend.conf.erb'
   variables(
-    :server_name => 'localhost'
-    # :liferay_server => '127.0.0.1',
-    # :liferay_port => '8000'
+    :server_name => 'localhost',
+    :liferay_server => '127.0.0.1',
+    :liferay_port => '8000'
   )
 end
