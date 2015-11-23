@@ -27,6 +27,8 @@ template '/etc/yum.repos.d/epel-httpd24.repo' do
 end
 
 node.override['apache']['version'] = '2.4'
+node.override['frontend']['hostname']
+
 include_recipe 'apache2::default'
 
 execute 'update-to-httpd24' do
@@ -35,4 +37,9 @@ end
 
 execute 'start-httpd24' do
   command 'service httpd24-httpd start'
+end
+
+web_app 'frontend' do
+  template 'apache-frontend.conf.erb'
+  server_name node['frontend']['hostname']
 end
