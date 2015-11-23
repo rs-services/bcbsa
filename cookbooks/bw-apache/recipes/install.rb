@@ -27,7 +27,7 @@ template '/etc/yum.repos.d/epel-httpd24.repo' do
 end
 
 node.override['apache']['version'] = '2.4'
-node.override['frontend']['hostname']
+node.override['frontend']['hostname'] = localhost
 
 include_recipe 'apache2::default'
 
