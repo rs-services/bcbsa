@@ -27,7 +27,6 @@ template '/etc/yum.repos.d/epel-httpd24.repo' do
 end
 
 node.override['apache']['version'] = '2.4'
-node.override['frontend']['hostname'] = 'localhost'
 
 include_recipe 'apache2::default'
 
@@ -41,7 +40,7 @@ end
 
 web_app 'frontend' do
   template 'apache-frontend.conf.erb'
-  server_name node['frontend']['hostname']
+  server_name 'localhost'
   liferay_server '127.0.0.1'
   liferay_port '8000'
 end
