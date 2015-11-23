@@ -28,3 +28,11 @@ end
 
 node.override['apache']['version'] = '2.4'
 include_recipe 'apache2::default'
+
+execute 'update-to-httpd24' do
+  command 'yum -y install httpd24'
+end
+
+execute 'start-httpd24' do
+  command 'service httpd24 start'
+end
