@@ -15,3 +15,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+marker 'recipe_start'
+
+marker 'recipe_start_rightscale' do
+  template 'rightscale_audit_entry.erb'
+end

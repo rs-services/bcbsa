@@ -15,5 +15,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+marker 'recipe_start'
+
+marker 'recipe_start_rightscale' do
+  template 'rightscale_audit_entry.erb'
+end
+
 node.override['apache']['version'] = '2.4'
 include_recipe 'apache2::default'
