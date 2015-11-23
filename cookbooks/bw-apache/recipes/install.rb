@@ -15,5 +15,5 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
+node.override['apache']['version'] = '2.4'
 include_recipe 'apache2::default'
