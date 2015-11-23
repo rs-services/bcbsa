@@ -38,9 +38,11 @@ execute 'start-httpd24' do
   command 'service httpd24-httpd start'
 end
 
-web_app 'frontend' do
-  template 'apache-frontend.conf.erb'
-  server_name 'localhost'
-  liferay_server '127.0.0.1'
-  liferay_port '8000'
+template '/etc/httpd/sites-available/apache-frontend' do
+  source 'apache-frontend.conf.erb'
+  variables(
+    :server_name => 'localhost',
+    :liferay_server => '127.0.0.1',
+    :liferay_port => '8000'
+  )
 end
