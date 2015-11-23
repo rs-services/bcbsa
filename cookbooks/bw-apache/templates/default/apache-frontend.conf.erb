@@ -1,0 +1,19 @@
+<VirtualHost *:80>
+ServerName @params[:server_name]
+DocumentRoot /opt/blueweb/web/
+
+<Proxy balancer://liferaycms-balancer>
+     AddDefaultCharset Off
+     Order deny,allow
+     Allow from all
+        BalancerMember ajp://<liferayServerName>:<ajp-port-from-tcserver> route=bluewebjvm1-1 loadfactor=1 ping=3 timeout=1200 ttl=1200 retry=300
+
+        ProxySet stickysession=ROUTEID
+
+</Proxy>
+ProxyPass        /  balancer://liferaycms-balancer/
+
+ProxyPassReverse / ajp://<liferayServerName>:9080/
+
+
+</VirtualHost>
