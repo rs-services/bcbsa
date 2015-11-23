@@ -42,4 +42,6 @@ end
 web_app 'frontend' do
   template 'apache-frontend.conf.erb'
   server_name node['frontend']['hostname']
+  liferay_server '127.0.0.1'
+  liferay_port '8000'
 end
