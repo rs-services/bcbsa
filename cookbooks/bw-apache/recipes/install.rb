@@ -24,7 +24,6 @@ end
 
 template '/etc/yum.repos.d/epel-httpd24.repo' do
   source 'epel-httpd24.repo.erb'
-  notifies :run, 'execute[yum-update]', :immediate
 end
 
 node.override['apache']['version'] = '2.4'
