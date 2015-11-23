@@ -22,5 +22,10 @@ marker 'recipe_start_rightscale' do
   template 'rightscale_audit_entry.erb'
 end
 
+template '/etc/yum.repos.d/epel-httpd24.repo' do
+  source 'epel-httpd24.repo.erb'
+  notifies :run, 'execute[yum-update]', :immediate
+end
+
 node.override['apache']['version'] = '2.4'
 include_recipe 'apache2::default'
