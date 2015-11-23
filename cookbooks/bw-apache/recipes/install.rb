@@ -34,5 +34,5 @@ execute 'update-to-httpd24' do
 end
 
 execute 'start-httpd24' do
-  command 'service httpd24 start'
+  command 'service httpd24-httpd start'
 end
