@@ -41,9 +41,9 @@ end
 template '/etc/httpd/sites-available/apache-frontend' do
   source 'apache-frontend.conf.erb'
   variables(
-    :server_name => 'localhost',
-    :liferay_server => '127.0.0.1',
-    :doc_root => '/var/www/html',
-    :liferay_port => '8000'
+    :server_name => "#{node['bw-apache']['server_name']}",
+    :liferay_server => "#{node['bw-apache']['liferay_server']}",
+    :doc_root => "#{node['bw-apache']['doc_root']}",
+    :liferay_port => "#{node['bw-apache']['liferay_port']}"
   )
 end
