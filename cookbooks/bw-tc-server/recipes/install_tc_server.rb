@@ -21,4 +21,4 @@ node.override['tcserver']['rpm_filename'] = 'vfabric-tc-server-standard-2.9.5-SR
 node.override['tcserver']['rpm_url'] = 'http://download.gopivotal.com/tcserver/2.9.5/'
 node.override['tcserver']['rpm_sum'] = '04a1ea0a1d62bbb9eab328b1789adb5205888d51'
 
-include_recipe 'tc_server::default'
+include_recipe 'tcserver::default'
