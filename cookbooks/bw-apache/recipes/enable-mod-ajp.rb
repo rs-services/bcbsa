@@ -22,7 +22,3 @@ marker 'recipe_start_rightscale' do
 end
 
 include_recipe 'apache2::mod_proxy_ajp'
-
-# apache_config 'mod_proxy_ajp' do
-#   enable true
-# end

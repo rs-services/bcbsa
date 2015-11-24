@@ -1,6 +1,6 @@
 <VirtualHost *:80>
 ServerName <%= @server_name %>
-DocumentRoot <%= @docroot %>
+DocumentRoot <%= @doc_root %> blah
 
 <Proxy balancer://liferaycms-balancer>
      AddDefaultCharset Off

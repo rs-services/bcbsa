@@ -43,6 +43,7 @@ template '/etc/httpd/sites-available/apache-frontend' do
   variables(
     :server_name => 'localhost',
     :liferay_server => '127.0.0.1',
+    :doc_root => '/var/www/html',
     :liferay_port => '8000'
   )
 end
