@@ -12,7 +12,7 @@ DocumentRoot <%= @doc_root %>
 </Proxy>
 ProxyPass        /  balancer://liferaycms-balancer/
 
-ProxyPassReverse / ajp://<%= @liferay_server %>:9080/
+ProxyPassReverse / ajp://<%= @liferay_server %>:<%= @liferay_port %>/
 
 
 </VirtualHost>

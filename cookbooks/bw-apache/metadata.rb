@@ -18,25 +18,29 @@ attribute 'bw-apache/server_name',
   :description => 'Apache Server Name',
   :type => 'string',
   :required => 'recommended',
-  :default => 'localhost'
+  :default => 'localhost',
+  :recipes => ['bw-apache::install']
 
 attribute 'bw-apache/liferay_server',
   :display_name => 'Liferay Application Server',
   :description => 'Hostname or ip of the Liferay Application Server',
   :type => 'string',
   :required => 'recommended',
-  :default => '127.0.0.1'
+  :default => '127.0.0.1',
+  :recipes => ['bw-apache::install']
 
 attribute 'bw-apache/doc_root',
   :display_name => 'Apache DocumentRoot',
   :description => 'DocumentRoot path for apache frontend server',
   :type => 'string',
   :required => 'recommended',
-  :default => '/var/www/html'
+  :default => '/var/www/html',
+  :recipes => ['bw-apache::install']
 
 attribute 'bw-apache/liferay_port',
   :display_name => 'Liferay Application Port',
   :description => 'Liferay Application Port',
   :type => 'string',
   :required => 'recommended',
-  :default => '8000'
+  :default => '8000',
+  :recipes => ['bw-apache::install']
