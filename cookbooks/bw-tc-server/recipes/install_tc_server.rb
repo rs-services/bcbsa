@@ -24,10 +24,15 @@ directory '/opt/tc_server/' do
   action :create
 end
 
-remote_file "/opt/tc_server/vfabric-tc-server-standard-2.9.5.SR1.tar.gz" do
+remote_file '/opt/tc_server/vfabric-tc-server-standard-2.9.5.SR1.tar.gz' do
   source 'http://download.gopivotal.com/tcserver/2.9.5/vfabric-tc-server-standard-2.9.5.SR1.tar.gz'
 end
 
+execute 'extract_tc_server' do
+  command 'tar xzvf vfabric-tc-server-standard-2.9.5.SR1.tar.gz'
+  cwd '/opt/tc_server'
+  #not_if { File.exists?("/file/contained/in/tar/here") }
+end
 
 # directory '/usr/java' do
 # end
