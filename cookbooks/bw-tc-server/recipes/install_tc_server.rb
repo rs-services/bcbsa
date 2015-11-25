@@ -48,11 +48,18 @@ execute 'extract_tc_server' do
   command 'tar xzvf vfabric-tc-server-standard-2.9.5.SR1.tar.gz'
   cwd '/opt/vmware'
   user 'liferay'
-  not_if { File.exists?('/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/README.txt') }
+  not_if { File.exist?('/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/README.txt') }
 end
 
 ruby_block 'set-env-java-home' do
   block do
     ENV['JAVA_HOME'] = '/usr/java/jdk1.8.0_45'
   end
+end
+
+execute 'create-liferay-instance' do
+  command './tcruntime-instance.sh create LIFERAY-INSTANCE-1'
+  cwd '/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1'
+  user 'liferay'
+  not_if { File.exist?('opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1') }
 end
