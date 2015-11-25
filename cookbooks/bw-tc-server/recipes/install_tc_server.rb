@@ -40,19 +40,19 @@ end
 
 remote_file '/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1.tar.gz' do
   source 'http://download.gopivotal.com/tcserver/2.9.5/vfabric-tc-server-standard-2.9.5.SR1.tar.gz'
+  owner 'liferay'
+  group 'liferay'
 end
 
 execute 'extract_tc_server' do
   command 'tar xzvf vfabric-tc-server-standard-2.9.5.SR1.tar.gz'
   cwd '/opt/vmware'
   user 'liferay'
-  not_if { File.exists?("/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/README.txt") }
+  not_if { File.exists?('/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/README.txt') }
 end
 
-# directory '/usr/java' do
-# end
-#
-# link '/usr/java/bin' do
-#   to '/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.45-28.b13.el6_6.x86_64/jre/bin'
-#   link_type :symbolic
-# end
+ruby_block 'set-env-java-home' do
+  block do
+    ENV['JAVA_HOME'] = '/usr/java/jdk1.8.0_45'
+  end
+end
