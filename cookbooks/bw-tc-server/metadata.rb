@@ -6,6 +6,6 @@ description      'Installs/Configures bw-tc-server'
 long_description 'Installs/Configures bw-tc-server'
 version          '0.1.0'
 
-depends 'tcserver'
+depends 'marker'
 
 recipe 'bw-tc-server::install_tc_server', 'Installs TC Server 2.9'

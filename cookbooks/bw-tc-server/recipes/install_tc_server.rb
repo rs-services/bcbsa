@@ -16,9 +16,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+yum_package 'java-openjdk'
 
-node.override['tcserver']['rpm_filename'] = 'vfabric-tc-server-standard-2.9.5-SR1.noarch.rpm'
-node.override['tcserver']['rpm_url'] = 'http://download.gopivotal.com/tcserver/2.9.5/'
-node.override['tcserver']['rpm_sum'] = '04a1ea0a1d62bbb9eab328b1789adb5205888d51'
+directory '/opt/tc_server/' do
+  recursive true
+  mode 0644
+  action :create
+end
 
-include_recipe 'tcserver::default'
+remote_file "/opt/tc_server/vfabric-tc-server-standard-2.9.5.SR1.tar.gz" do
+  source 'http://download.gopivotal.com/tcserver/2.9.5/vfabric-tc-server-standard-2.9.5.SR1.tar.gz'
+end
+
+
+# directory '/usr/java' do
+# end
+#
+# link '/usr/java/bin' do
+#   to '/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.45-28.b13.el6_6.x86_64/jre/bin'
+#   link_type :symbolic
+# end
