@@ -31,7 +31,7 @@ end
 execute 'extract_tc_server' do
   command 'tar xzvf vfabric-tc-server-standard-2.9.5.SR1.tar.gz'
   cwd '/opt/tc_server'
-  #not_if { File.exists?("/file/contained/in/tar/here") }
+  not_if { File.exists?("/opt/tc_server/vfabric-tc-server-standard-2.9.5.SR1/README.txt") }
 end
 
 # directory '/usr/java' do
