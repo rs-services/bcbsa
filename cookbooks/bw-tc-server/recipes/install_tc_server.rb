@@ -65,7 +65,7 @@ execute 'create-liferay-instance' do
 end
 
 execute 'start-tc-server-validate' do
-  command './tcserver-ctl.sh start'
-  cwd '/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1/'
+  command './tcruntime-ctl.sh start'
+  cwd '/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1/bin'
   user 'liferay'
 end
