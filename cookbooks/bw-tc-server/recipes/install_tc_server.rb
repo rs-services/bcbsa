@@ -75,3 +75,15 @@ execute 'start-tc-server-validate' do
   cwd '/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1/bin'
   user 'liferay'
 end
+
+execute 'stop-tc-server-validate' do
+  command './tcruntime-ctl.sh stop'
+  cwd '/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1/bin'
+  user 'liferay'
+end
+
+execute 'prepare-tc-server-for-liferay-tomcat' do
+  command 'rm -rf LIFERAY-INSTANCE-1/webapps/ROOT'
+  cwd '/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1'
+  user 'liferay'
+end

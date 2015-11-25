@@ -38,7 +38,7 @@ execute 'start-httpd24' do
   command 'service httpd24-httpd start'
 end
 
-template '/etc/httpd/sites-available/apache-frontend' do
+template '/etc/httpd/sites-available/apache-frontend.conf' do
   source 'apache-frontend.conf.erb'
   variables(
     :server_name => "#{node['bw-apache']['server_name']}",
