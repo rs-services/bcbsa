@@ -63,3 +63,9 @@ execute 'create-liferay-instance' do
   user 'liferay'
   not_if { File.exist?('opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1') }
 end
+
+execute 'start-tc-server-validate' do
+  command './tcserver-ctl.sh start'
+  cwd '/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1/'
+  user 'liferay'
+end
