@@ -18,20 +18,33 @@
 #
 yum_package 'java'
 
-directory '/opt/tc_server/' do
+user 'liferay' do
+  comment 'liferay and tcserver user'
+  home '/opt/vmware'
+  shell '/bin/bash'
+end
+
+group 'liferay' do
+  action :create
+  members 'liferay'
+  append true
+end
+
+directory '/opt/vmware/' do
   recursive true
   mode 0644
+  owner 'liferay'
   action :create
 end
 
-remote_file '/opt/tc_server/vfabric-tc-server-standard-2.9.5.SR1.tar.gz' do
+remote_file '/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1.tar.gz' do
   source 'http://download.gopivotal.com/tcserver/2.9.5/vfabric-tc-server-standard-2.9.5.SR1.tar.gz'
 end
 
 execute 'extract_tc_server' do
   command 'tar xzvf vfabric-tc-server-standard-2.9.5.SR1.tar.gz'
-  cwd '/opt/tc_server'
-  not_if { File.exists?("/opt/tc_server/vfabric-tc-server-standard-2.9.5.SR1/README.txt") }
+  cwd '/opt/vmware'
+  not_if { File.exists?("/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/README.txt") }
 end
 
 # directory '/usr/java' do
