@@ -32,7 +32,7 @@ end
 
 directory '/opt/vmware/' do
   recursive true
-  mode 0644
+  mode 0755
   owner 'liferay'
   group 'liferay'
   action :create
