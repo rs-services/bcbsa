@@ -34,6 +34,7 @@ directory '/opt/vmware/' do
   recursive true
   mode 0644
   owner 'liferay'
+  group 'liferay'
   action :create
 end
 
@@ -44,6 +45,7 @@ end
 execute 'extract_tc_server' do
   command 'tar xzvf vfabric-tc-server-standard-2.9.5.SR1.tar.gz'
   cwd '/opt/vmware'
+  user 'liferay'
   not_if { File.exists?("/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/README.txt") }
 end
 
