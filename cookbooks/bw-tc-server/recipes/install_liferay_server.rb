@@ -23,7 +23,7 @@ marker 'recipe_start_rightscale' do
 end
 
 remote_file '/opt/vmware/liferay-portal-tomcat-6.2-ce-ga4.zip' do
-  source 'http://downloads.sourceforge.net/project/lportal/Liferay%20Portal/6.2.3%20GA4/liferay-portal-tomcat-6.2-ce-ga4-20150416163831865.zip?r=&ts=1448485566&use_mirror=superb-dca2'
+  source 'https://s3.amazonaws.com/passfw/liferay-portal-tomcat-6.2-ce-ga4.zip'
   owner 'liferay'
   group 'liferay'
 end
