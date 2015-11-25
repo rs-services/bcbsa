@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-yum_package 'java-openjdk'
+yum_package 'java'
 
 directory '/opt/tc_server/' do
   recursive true
