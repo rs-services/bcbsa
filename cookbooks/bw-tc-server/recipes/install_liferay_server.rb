@@ -22,6 +22,8 @@ marker 'recipe_start_rightscale' do
   template 'rightscale_audit_entry.erb'
 end
 
+yum_package 'unzip'
+
 remote_file '/opt/vmware/liferay-portal-tomcat-6.2-ce-ga4.zip' do
   source 'https://s3.amazonaws.com/passfw/liferay-portal-tomcat-6.2-ce-ga4.zip'
   owner 'liferay'
