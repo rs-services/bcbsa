@@ -82,8 +82,8 @@ execute 'stop-tc-server-validate' do
   user 'liferay'
 end
 
-execute 'prepare-tc-server-for-liferay-tomcat' do
-  command 'rm -rf LIFERAY-INSTANCE-1/webapps/ROOT'
-  cwd '/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1'
-  user 'liferay'
-end
+# execute 'prepare-tc-server-for-liferay-tomcat' do
+#   command 'rm -rf LIFERAY-INSTANCE-1/webapps/ROOT'
+#   cwd '/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1'
+#   user 'liferay'
+# end
