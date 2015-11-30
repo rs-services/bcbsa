@@ -34,10 +34,6 @@ execute 'update-to-httpd24' do
   command 'yum -y install httpd24'
 end
 
-execute 'start-httpd24' do
-  command 'service httpd24-httpd start'
-end
-
 template '/opt/rh/httpd24/root/etc/httpd/conf.d/apache-frontend.conf' do
   source 'apache-frontend.conf.erb'
   variables(
@@ -46,4 +42,8 @@ template '/opt/rh/httpd24/root/etc/httpd/conf.d/apache-frontend.conf' do
     :doc_root => "#{node['bw-apache']['doc_root']}",
     :liferay_port => "#{node['bw-apache']['liferay_port']}"
   )
+end
+
+execute 'start-httpd24' do
+  command 'service httpd24-httpd start'
 end
