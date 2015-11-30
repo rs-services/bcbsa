@@ -6,13 +6,13 @@ DocumentRoot <%= @doc_root %>
      AddDefaultCharset Off
      Order deny,allow
      Allow from all
-        BalancerMember ajp://<%= @liferay_server %>:<%= @liferay_port %> route=bluewebjvm1-1 loadfactor=1 ping=3 timeout=1200 ttl=1200 retry=300
+        BalancerMember http://<%= @liferay_server %>:<%= @liferay_port %> route=bluewebjvm1-1 loadfactor=1 ping=3 timeout=1200 ttl=1200 retry=300
         ProxySet stickysession=ROUTEID
 
 </Proxy>
 ProxyPass        /  balancer://liferaycms-balancer/
 
-ProxyPassReverse / ajp://<%= @liferay_server %>:<%= @liferay_port %>/
+ProxyPassReverse / http://<%= @liferay_server %>:<%= @liferay_port %>/
 
 
 </VirtualHost>
