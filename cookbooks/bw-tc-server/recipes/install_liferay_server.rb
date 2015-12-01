@@ -44,8 +44,8 @@ ruby_block 'set-env-java-home' do
 end
 
 execute 'move-liferay-webapp-files' do
-  command 'cp -R webapps/* /opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1/webapps/'
-  cwd '/opt/vmware/liferay-portal-6.2-ce-ga4/tomcat-7.0.42/ '
+  command 'cp -R /opt/vmware/liferay-portal-6.2-ce-ga4/tomcat-7.0.42/webapps/* /opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1/webapps/'
+  #cwd '/opt/vmware/liferay-portal-6.2-ce-ga4/tomcat-7.0.42/ '
   user 'liferay'
 end
 
