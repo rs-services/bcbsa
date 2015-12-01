@@ -50,14 +50,14 @@ execute 'move-liferay-webapp-files' do
 end
 
 execute 'move-liferay-ext-files' do
-  command 'cp -R ext /opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1/lib/'
-  cwd '/opt/vmware/liferay-portal-6.2-ce-ga4/tomcat-7.0.42/webapps/lib/ '
+  command 'cp -R /opt/vmware/liferay-portal-6.2-ce-ga4/tomcat-7.0.42/webapps/lib/ext /opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1/lib/'
+  #cwd '/opt/vmware/liferay-portal-6.2-ce-ga4/tomcat-7.0.42/webapps/lib/ '
   user 'liferay'
 end
 
 execute 'move-liferay-jar-files' do
-  command 'cp *.jar /opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1/lib/'
-  cwd '/opt/vmware/liferay-portal-6.2-ce-ga4/tomcat-7.0.42/webapps/lib/ext/ '
+  command 'cp /opt/vmware/liferay-portal-6.2-ce-ga4/tomcat-7.0.42/webapps/lib/ext/*.jar /opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1/lib/'
+  #cwd '/opt/vmware/liferay-portal-6.2-ce-ga4/tomcat-7.0.42/webapps/lib/ext/ '
   user 'liferay'
 end
 
