@@ -31,7 +31,7 @@ remote_file '/opt/vmware/liferay-portal-tomcat-6.2-ce-ga4.zip' do
 end
 
 execute 'extract_tc_server' do
-  command 'unzip liferay-portal-tomcat-6.2-ce-ga4.zip'
+  command 'unzip -q liferay-portal-tomcat-6.2-ce-ga4.zip'
   cwd '/opt/vmware'
   user 'liferay'
   not_if { File.exist?('/opt/vmware/liferay-portal-6.2-ce-ga4/readme.html') }
