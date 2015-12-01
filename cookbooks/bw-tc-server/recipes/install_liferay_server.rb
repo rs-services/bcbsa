@@ -34,7 +34,7 @@ execute 'extract_tc_server' do
   command 'unzip liferay-portal-tomcat-6.2-ce-ga4.zip'
   cwd '/opt/vmware'
   user 'liferay'
-#  not_if { File.exist?('/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/README.txt') }
+  not_if { File.exist?('/opt/vmware/liferay-portal-tomcat-6.2-ce-ga4/readme.html') }
 end
 
 ruby_block 'set-env-java-home' do
@@ -43,15 +43,26 @@ ruby_block 'set-env-java-home' do
   end
 end
 
-# execute 'create-liferay-instance' do
-#   command './tcruntime-instance.sh create LIFERAY-INSTANCE-1'
-#   cwd '/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1'
-#   user 'liferay'
-#   not_if { File.exist?('opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1') }
-# end
-#
-# execute 'start-tc-server-validate' do
-#   command './tcruntime-ctl.sh start'
-#   cwd '/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1/bin'
-#   user 'liferay'
-# end
+execute 'move-liferay-webapp-files' do
+  command 'cp -R webapps/* /opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1/webapps/'
+  cwd '/opt/vmware/liferay-portal-tomcat-6.2-ce-ga4/tomcat-7.0.42/ '
+  user 'liferay'
+end
+
+execute 'move-liferay-ext-files' do
+  command 'cp -R ext /opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1/lib/'
+  cwd '/opt/vmware/liferay-portal-tomcat-6.2-ce-ga4/tomcat-7.0.42/webapps/lib/ '
+  user 'liferay'
+end
+
+execute 'move-liferay-jar-files' do
+  command 'cp *.jar /opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1/lib/'
+  cwd '/opt/vmware/liferay-portal-tomcat-6.2-ce-ga4/tomcat-7.0.42/webapps/lib/ext/ '
+  user 'liferay'
+end
+
+execute 'start-tc-liferay-server' do
+  command './tcruntime-ctl.sh start'
+  cwd '/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1/bin'
+  user 'liferay'
+end
