@@ -65,7 +65,16 @@ template '/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1/bi
   source 'setenv.erb'
   variables(
     :max_java_heap_size => "#{node['bw-tc-server']['max_java_heap_size']}",
-    :min_java_heap_size => "#{node['bw-tc-server']['min_java_heap_size']}",
+    :min_java_heap_size => "#{node['bw-tc-server']['min_java_heap_size']}"
+  )
+end
+
+template '/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1/webapps/ROOT/WEB-INF/classes/portal-ext.properties' do
+  source 'portal-ext.properties.erb'
+  variables(
+    :database_ip => "#{node['bw-tc-server']['database_ip']}",
+    :database_user => "#{node['bw-tc-server']['database_user']}",
+    :database_password => "#{node['bw-tc-server']['database_password']}"
   )
 end
 
