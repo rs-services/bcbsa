@@ -64,9 +64,12 @@ end
 template '/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1/bin/setenv.sh' do
   source 'setenv.erb'
   variables(
-    :max_java_heap_size => "#{node['bw-tc-server']['max_java_heap_size']}",
-    :min_java_heap_size => "#{node['bw-tc-server']['min_java_heap_size']}"
+    # :max_java_heap_size => "#{node['bw-tc-server']['max_java_heap_size']}",
+    # :min_java_heap_size => "#{node['bw-tc-server']['min_java_heap_size']}"
+     :max_java_heap_size => '1024M'
+     :min_java_heap_size => '512M'
   )
+
 end
 
 # template '/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1/webapps/ROOT/WEB-INF/classes/portal-ext.properties' do
