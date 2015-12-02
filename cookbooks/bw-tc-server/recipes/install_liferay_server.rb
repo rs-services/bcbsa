@@ -45,20 +45,28 @@ end
 
 execute 'move-liferay-webapp-files' do
   command 'cp -R /opt/vmware/liferay-portal-6.2-ce-ga4/tomcat-7.0.42/webapps/* /opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1/webapps/'
-  #cwd '/opt/vmware/liferay-portal-6.2-ce-ga4/tomcat-7.0.42/ '
+  # cwd '/opt/vmware/liferay-portal-6.2-ce-ga4/tomcat-7.0.42/ '
   user 'liferay'
 end
 
 execute 'move-liferay-ext-files' do
   command 'cp -R /opt/vmware/liferay-portal-6.2-ce-ga4/tomcat-7.0.42/lib/ext /opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1/lib/'
-  #cwd '/opt/vmware/liferay-portal-6.2-ce-ga4/tomcat-7.0.42/lib/ '
+  # cwd '/opt/vmware/liferay-portal-6.2-ce-ga4/tomcat-7.0.42/lib/ '
   user 'liferay'
 end
 
 execute 'move-liferay-jar-files' do
   command 'cp /opt/vmware/liferay-portal-6.2-ce-ga4/tomcat-7.0.42/lib/ext/*.jar /opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1/lib/'
-  #cwd '/opt/vmware/liferay-portal-6.2-ce-ga4/tomcat-7.0.42/webapps/lib/ext/ '
+  # cwd '/opt/vmware/liferay-portal-6.2-ce-ga4/tomcat-7.0.42/lib/ext/ '
   user 'liferay'
+end
+
+template '/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1/bin/setenv.sh' do
+  source 'setenv.erb'
+  variables(
+    :max_java_heap_size => "#{node['bw-tc-server']['max_java_heap_size']}",
+    :min_java_heap_size => "#{node['bw-tc-server']['min_java_heap_size']}",
+  )
 end
 
 execute 'start-tc-liferay-server' do
