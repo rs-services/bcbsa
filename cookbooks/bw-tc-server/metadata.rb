@@ -23,6 +23,26 @@ attribute 'bw-tc-server/min_java_heap_size',
   :display_name => 'TC Server Min Heap Size',
   :description => 'Max Heap Size setting (1024M , 2G , 256K)',
   :type => 'string',
-  :required => 'recommended',
   :default => '512M',
+  :recipes => ['bw-tc-server::install_liferay_server']
+
+attribute 'bw-tc-server/database_ip',
+  :display_name => 'Database IP or Hostname',
+  :description => 'Liferay Database IP or Hostname',
+  :required => 'recommended',
+  :type => 'string',
+  :recipes => ['bw-tc-server::install_liferay_server']
+
+attribute 'bw-tc-server/database_user',
+  :display_name => 'Database Username',
+  :description => 'Liferay Database Username',
+  :required => 'recommended',
+  :type => 'string',
+  :recipes => ['bw-tc-server::install_liferay_server']
+
+attribute 'bw-tc-server/database_password',
+  :display_name => 'Database Password',
+  :description => 'Liferay Database Password',
+  :required => 'recommended',
+  :type => 'string',
   :recipes => ['bw-tc-server::install_liferay_server']
