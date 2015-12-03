@@ -88,3 +88,11 @@ execute 'start-tc-liferay-server' do
   cwd '/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1/bin'
   user 'liferay'
 end
+
+file '/opt/vmware/liferay-portal-tomcat-6.2-ce-ga4.zip' do
+  action :delete
+end
+
+file '/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1.tar.gz' do
+  action :delete
+end
