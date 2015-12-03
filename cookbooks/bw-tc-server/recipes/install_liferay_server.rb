@@ -79,7 +79,7 @@ template '/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1/we
 end
 
 execute 'update-protocol-to-ajp' do
-  command 'sed -i s/org.apache.coyote.http11.Http11Protocol/AJP\/1.3/g /opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1/conf/server.xml'
+  command "sed -i 's/org.apache.coyote.http11.Http11Protocol/AJP\/1.3/g' /opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1/conf/server.xml"
   user 'liferay'
 end
 
