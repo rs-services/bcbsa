@@ -83,16 +83,16 @@ execute 'update-protocol-to-ajp' do
   user 'liferay'
 end
 
-execute 'start-tc-liferay-server' do
-  command './tcruntime-ctl.sh start'
-  cwd '/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1/bin'
-  user 'liferay'
-end
-
 file '/opt/vmware/liferay-portal-tomcat-6.2-ce-ga4.zip' do
   action :delete
 end
 
 file '/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1.tar.gz' do
   action :delete
+end
+
+execute 'start-tc-liferay-server' do
+  command './tcruntime-ctl.sh start'
+  cwd '/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1/bin'
+  user 'liferay'
 end
