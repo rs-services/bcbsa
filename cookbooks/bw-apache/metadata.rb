@@ -4,7 +4,7 @@ maintainer_email 'cookbooks@rightscale.com'
 license          'Apache 2.0'
 description      'Installs/Configures bw-apache'
 long_description 'Installs/Configures bw-apache'
-version          '0.1.0'
+version          '1.0.0'
 
 depends 'apache2'
 depends 'marker'
