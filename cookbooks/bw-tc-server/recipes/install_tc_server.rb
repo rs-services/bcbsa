@@ -63,7 +63,7 @@ ruby_block 'set-env-java-home' do
 end
 
 execute 'create-liferay-instance' do
-  command './tcruntime-instance.sh create LIFERAY-INSTANCE-1'
+  command 'export JAVA_HOME=/usr/java/jdk1.7.0_79 && ./tcruntime-instance.sh create LIFERAY-INSTANCE-1'
   cwd '/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1'
   user 'liferay'
   not_if { File.exist?('/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1') }
