@@ -22,7 +22,6 @@ marker 'recipe_start_rightscale' do
   template 'rightscale_audit_entry.erb'
 end
 
-yum_package 'java'
 
 user 'liferay' do
   comment 'liferay and tcserver user'
@@ -59,8 +58,7 @@ end
 
 ruby_block 'set-env-java-home' do
   block do
-    ENV['JAVA_HOME'] = '/usr/lib/jvm/java-1.5.0-gcj-1.5.0.0/jre'
-    #ENV['JAVA_HOME'] = '/usr/java/jdk1.8.0_45'
+  ENV['JAVA_HOME'] = '/usr/java/jdk1.7.0_79'
   end
 end
 
