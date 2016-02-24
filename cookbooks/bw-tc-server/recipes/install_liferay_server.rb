@@ -92,7 +92,7 @@ file '/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1.tar.gz' do
 end
 
 execute 'start-tc-liferay-server' do
-  command './tcruntime-ctl.sh start'
+  command 'export JAVA_HOME=/usr/java/jdk1.7.0_79 && ./tcruntime-ctl.sh start'
   cwd '/opt/vmware/vfabric-tc-server-standard-2.9.5.SR1/LIFERAY-INSTANCE-1/bin'
   user 'liferay'
 end
